@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      let playerScore = 0;
+      let computerScore = 0;
+      const options = ["rock", "paper", "scissors"];
+      function game() {
+        const user = prompt("Take your turn!").toLowerCase();
+        if (user === "") {
+          alert("Please enter rock, paper or scissors");
+          return;
+        } else {
+          const computersChoice =
+            options[Math.floor(Math.random() * options.length)];
+          console.log("your choice = " + user.toLowerCase());
+          console.log("Computers choice = " + computersChoice);
+
+          if (user === computersChoice) {
+            console.log("Its a Tie!");
+            playerScore++;
+            computerScore++;
+          } else if (user === "rock" && computersChoice === "paper") {
+            console.log("Computer win!");
+            computerScore++;
+          } else if (user === "rock" && computersChoice === "scissors") {
+            console.log("You win!");
+            playerScore++;
+          } else if (user === "paper" && computersChoice === "rock") {
+            console.log("You win!");
+            playerScore++;
+          } else if (user === "paper" && computersChoice === "scissors") {
+            console.log("Computer win!");
+            computerScore++;
+          } else if (user === "scissors" && computersChoice === "rock") {
+            console.log("Computer win!");
+            computerScore++;
+          } else if (user === "scissors" && computersChoice === "paper") {
+            console.log("You win!");
+            playerScore++;
+          }
+        }
+        console.log("Players Score = " + playerScore);
+        console.log("Computers Score = " + computerScore);
+      }
+
+      for (let i = 0; i < 5; i++) {
+        game();
+      }
+      if (playerScore > computerScore) {
+        console.log("congratulations! You win!");
+      } else {
+        console.log("Sorry! The Computer Won This Time!");
+      }
+    </script>
+  </body>
+</html>
